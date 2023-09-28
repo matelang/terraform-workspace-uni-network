@@ -4,7 +4,7 @@ provider "aws" {
 
 module "uni-network" {
   source  = "app.terraform.io/matelang/uni-network/module"
-  version = "1.0.1"
+  version = "1.1.0"
 
   name        = var.name
   environment = var.environment
@@ -21,4 +21,8 @@ variable "environment" {
 
 variable "cidr" {
   type = string
+}
+
+output "public_subnet_ids" {
+  value = module.uni-network.public_subnet_ids
 }
